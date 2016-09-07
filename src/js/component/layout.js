@@ -3,17 +3,21 @@ import Header from "./header";
 import Footer from "./footer";
 
 export default class Layout extends React.Component{
+	constructor(){
+		super();
+		this.state = {
+			title: "Will"
+		};
+	}
+	changeTitle(title) {
+    this.setState({title});
+  }
 	render() {
-		// var list = [
-		// <Header />,
-		// <Header />,
-		// <Header />
-		// ];
-
+		const title = "Use props title!"
 		return (
 			<div>
-			<Header />
-			<Footer />
+				<Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
+				<Footer />
 			</div>
 		);
 	}
